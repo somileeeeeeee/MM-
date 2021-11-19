@@ -5,6 +5,7 @@ public class BAEKJOON1008 {
 
         Scanner sc = new Scanner(System.in);
 
+        // Double 형이 아닌 int일 경우, int의 반올림때문에 틀린답이 됨.
         Double A = sc.nextDouble();
         Double B = sc.nextDouble();
 
