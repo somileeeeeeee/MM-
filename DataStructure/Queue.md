@@ -1,17 +1,21 @@
 ## 큐(Queue) 
  
-1.  ### 큐 구조 
-: 줄 서는 행위와 유사. 가장 먼저 넣은 데이터를 가장 먼저 꺼낼 수 있는 구조. 입력과 출력을 한 쪽 끝(front, rear)으로 제한 
- 
-##### FIFO (First In First Out, 선입선출) : 가장 먼저 들어온 것이 가장 먼저 나옴 
+### 1. 큐 구조 
+* 줄을 서는 행위와 유사
+* 가장 먼저 넣은 데이터를 가장 먼저 꺼낼 수 있는 구조
+  - 음식점에서 가장 먼저 줄을 선 사람이 제일 먼저 음식점에 입장하는 것과 동일
+  - FIFO(First-In, First-Out) 또는 LILO(Last-In, Last-Out) 방식으로 스택과 꺼내는 순서가 반대
+  
+<img src="https://www.fun-coding.org/00_Images/queue.png" />
+* 출처: http://www.stoimen.com/blog/2012/06/05/computer-algorithms-stack-and-queue-data-structure/
  
 <br> 
  
-2.  ### 알아둘 용어 
-Enqueue : 큐에 데이터를 넣는 기능 
-Dequeue : 큐에서 데이터를 꺼내는 기능 
-isEmpty() : 비어있는 지 확인  
-isFull() : 꽉차있는 지 확인 
+### 2. 알아둘 용어 
+* Enqueue : 큐에 데이터를 넣는 기능 
+* Dequeue : 큐에서 데이터를 꺼내는 기능 
+* isEmpty() : 비어있는 지 확인  
+* isFull() : 꽉차있는 지 확인 
  
 데이터를 넣고 뺄 때 해당 값의 위치를 기억해야 함. (스택에서 스택 포인터와 같은 역할) 
 이 위치를 기억하고 있는 게 front와 rear 
