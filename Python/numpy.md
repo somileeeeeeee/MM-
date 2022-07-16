@@ -7,6 +7,13 @@
     - np.array(컬렉션)을 통해 생성 
     - .dtype을 통해 각 데이터의 자료형을 알 수 있다. 
 
+```python
+import numpy as np
+
+np.array([[1],[2],[3],[4]]).shape
+-> (4, 1) # 4행 1열
+```
+
 ## Numpy에서 사용되는 자료형
 - 부호가 있는 정수 int(8, 16, 32, 64)
 - 부호가 없느 정수 unit(8, 16, 32, 54)
@@ -158,3 +165,30 @@ print(d)
 - np.sort : 정렬
 
 * axis를 지정해줘서 행 또는 열을 기준으로 함수를 적용할 수 있음
+
+```python
+import numpy as np
+b = np.array([1,2,3,4])
+c = np.array([[1,2],
+              [3,4]])
+print(np.prod(b)) # 1*2*3*4
+print(np.prod(c, axis=0)) # [1*3, 2*4] 0은 열
+print(np.prod(c, axis=1)) # [1*2,2*4] 1은 행
+
+# 힙 : 1+2+3+4 = 10
+print(np.sum(b)) 
+
+# keepdims -> 차원을 유지해라 : 1차원이라 [10] 하나만 출력
+print(np.sum(b, keepdims=True)) # [1+2+3+4]
+
+print(np.sum(c, axis=0)) # [1+3, 2+4]
+print(np.sum(c, axis=1)) # [1+2, 3 +4]
+
+-> 24
+[3 8]
+[ 2 12]
+10
+[10]
+[4 6]
+[3 7]
+```
