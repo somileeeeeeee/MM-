@@ -34,6 +34,32 @@ pd.DataFrame({'col1':[1,2,3,4], 'col2': [5,6,7,8]})
 - df[숫자1:숫자2]를 통해 특정 행들에 접근 가능
 - df.iloc[숫자]를 통해 특정 행 하나에 접근가능(iloc도 마찬가지로 숫자1:숫자2로 여러 행에 접근 가능)
 
+```python
+a = pd.DataFrame([[1,2,3,4],[5,6,7,8]], columns = ['col1', 'col2', 'col3', 'col4'])
+a['col1']
+-> 0    1
+1    5
+Name: col1, dtype: int64
+
+a.col1
+-> 0    1
+1    5
+Name: col1, dtype: int64
+
+# 2차원 배열 형태
+a[1:]
+-> 
+col1	col2	col3	col4
+1	5	6	7	8
+
+# 1차원 배열 형태
+a.iloc[0]
+-> col1    1
+col2    2
+col3    3
+col4    4
+```
+
 ## DataFrame에 열 갱신, 추가, 삭제
 - df['새로만들열이름'] = data 컬렉션 : dataframe에 새로운 열 추가
 - df['기존열이름'] = df['기존열이름'] * 100 : dataframe의 기존 열을 변경
@@ -41,7 +67,27 @@ pd.DataFrame({'col1':[1,2,3,4], 'col2': [5,6,7,8]})
 
 ## DataFrame에 함수 적용
 - df.apply(함수, [axis=0]) : axis가 0일 경우(또는 생략) 컬럼 단위로 함수를 수행. axis가 1일 경우, row 단위로 함수 수행
-- df.applymap(함수) : 각각 요소 별로 함수 적용
+- df.agg(함수) : 각각 요소 별로 함수 적용
+
+```python
+a 
+-> col1	col2	col3	col4
+1	5	6	7	8
+
+# 디폴트는 컬럼 별로 함수 수행
+a.apply(sum)
+-> col1     6
+col2     8
+col3    10
+col4    12
+dtype: int64
+
+# axis = 1은 행별
+a.apply(sum, axis = 1)
+->0    10
+1    26
+dtype: int64
+```
 
 ## DataFrame에 NaN 처리
 - isnull() : NaN이나 None인 경우 True, 그 외엔 False
@@ -55,3 +101,16 @@ pd.DataFrame({'col1':[1,2,3,4], 'col2': [5,6,7,8]})
 - df.groupby('반').mean() : 반 별 평균 점수를 반환
 - df.groupby('컬럼이름').apply(함수) : 컬럼이름이 같은 것들끼리 함수를 적용
 - numpy 기반이기 때문에 대부분의 numpy 기반 함수를 method로 사용 가능하고 최적화도 잘 되어 있음.
+
+```python
+a = pd.DataFrame([['기린반', 30],['기린반', 50],['사슴반', 40],['사슴반', 80]], columns=['반','점수'])
+a.groupby('반').agg(lambda x : sum(x)**2)
+-> 	점수
+반	
+기린반	6400
+사슴반	14400
+```
+
+## DataFrame to CSV
+- df.to_csv('test.csv') 
+
