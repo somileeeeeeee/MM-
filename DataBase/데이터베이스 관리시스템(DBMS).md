@@ -29,11 +29,15 @@
   - DBMS 장애가 발생할 때 모든 응용프로그램 장애가 발생함.
   
 ## 3. Data Dictionary On DBMS
+> 실제 DBMS는 2가지의 타입을 저장한다고 볼 수 있는데, 실질적인 DB 테이블과 Metadata를 저장
+  
 ### 3.1 Data Dictionary (System Catalog)
+- Metadata 가 저장되는 저장소를 Data Dictionary 또는 System Catalog(벤더)라고 지칭
 - DBMS는 database와 함께 metadata(data about data)을 저장한다
 - 데이터 정의어(DDL)에 의해 생성
   
 ### 3.2 Metadata
+- 어떤 데이터가 저장되는지, 데이터 타입은 무엇인지 등을 저장하는 것을 말함
 - 각 데이터에 접근할 수 있는 데이터의 이름(테이블, 컬럼 이름)
 - 스토리지에 데이터가 저장된 위치
 - 보안을 위한 제약(security constraint) : 누가 어떤 데이터를 접근할 수 있나
